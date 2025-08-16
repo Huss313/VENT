@@ -1,0 +1,194 @@
+/* --- General --- */
+body {
+    font-family: 'Poppins', 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333;
+    
+}
+
+
+
+.navbar {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0.75rem 1.5rem;
+}
+
+.navbar-brand {
+    font-family: 'Poppins', 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #333 !important;
+    cursor: pointer;
+}
+
+.nav-link {
+    font-family: 'Poppins', 'Inter', sans-serif;
+    color: #555 !important;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: #6c757d !important;
+    border-bottom: 2px solid #6c757d;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.hero-subheading{
+     font-size: 3.5rem;                /* Larger text */
+  font-weight: 600;                 /* Semi-bold */
+  color: white;                     /* Text color */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Soft shadow */
+  margin-top: 0.5rem;               /* Space below main heading */
+  font-family: 'Arial', sans-serif; /* Custom font */
+  letter-spacing: 1px;              /* Slightly spaced letters */
+  text-transform: uppercase; 
+}
+
+.hero-section {
+  height: 100vh;
+  position: relative;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 2rem;
+  
+  /* Critical fixes to prevent gray tint */
+  background-color: white !important;       /* Force white base */
+  background-blend-mode: normal !important; /* Disable blending */
+  filter: none !important;                 /* Remove filters */
+  opacity: 1 !important;                   /* Ensure full opacity */
+  
+  /* Reset browser-specific quirks */
+  image-rendering: -webkit-optimize-contrast; /* Chrome/Safari clarity */
+  color-rendering: optimizeQuality;           /* Prevent color shifts */
+}
+
+
+
+.overlay {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-heading {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero-subheading {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #e0e0e0;
+    margin-bottom: 3rem;
+    font-style: italic;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Sections --- */
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #333;
+    text-align: center;
+}
+
+.section-subtitle {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #6c757d;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: stretch; 
+}
+
+.about-text {
+    font-weight: 500;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* --- Icon Styling --- */
+.service-icon {
+    font-size: 3.5rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.team-img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border: 5px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: #f0f0f0;
+    color: #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+    border: none;
+}
+
+.scroll-to-top-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer{
+  font-size: 0.7rem;
+}
+
+.team-saja {
+  width: 180px;        /* Larger size */
+  height: 180px;
+  border: 4px solid #28a745; /* Green border */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}

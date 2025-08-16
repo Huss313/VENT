@@ -1,0 +1,33 @@
+import React from 'react';
+import { Container } from 'react-bootstrap';
+import { Link as ScrollLink } from 'react-scroll';
+
+const Navbar = ({ onNavigate, darkMode, toggleDarkMode }) => {
+  return (
+    <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+      <Container>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item">
+              <ScrollLink className="nav-link" to="about" smooth={true} duration={500} offset={-56}>About</ScrollLink>
+            </li>
+            <li className="nav-item">
+              <ScrollLink className="nav-link" to="services" smooth={true} duration={500} offset={-56}>Services</ScrollLink>
+            </li>
+            <li className="nav-item">
+              <ScrollLink className="nav-link" to="team" smooth={true} duration={500} offset={-56}>Team</ScrollLink>
+            </li>
+            <li className="nav-item">
+              <ScrollLink className="nav-link" to="contact" smooth={true} duration={500} offset={-56}>Contact</ScrollLink>
+            </li>
+          </ul>
+        </div>
+      </Container>
+    </nav>
+  );
+};
+
+export default Navbar;

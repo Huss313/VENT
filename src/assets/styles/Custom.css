@@ -1,0 +1,77 @@
+.hero-section {
+    position: relative;
+    height: 100vh; /* Set the hero section to full viewport height */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+}
+
+/* Text Shadow for better readability */
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Section titles */
+.section-title {
+    font-weight: 700;
+    color: #343a40;
+}
+
+/* Service Icons */
+.service-icon {
+    font-size: 4rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+/* Team Images */
+.team-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Accordion */
+.accordion-button:not(.collapsed) {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+/* Scroll-to-top button */
+#scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1000;
+}
+
+#scroll-to-top.show {
+    opacity: 1;
+}
+
+/* Fade-in animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

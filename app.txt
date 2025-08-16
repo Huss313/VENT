@@ -1,0 +1,1013 @@
+import React, { useRef, useEffect, useState } from 'react';
+import { Container, Row, Col, Card, Image, Button } from 'react-bootstrap';
+import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
+import { FaArrowUp, FaHardHat, FaLightbulb, FaChartArea, FaLinkedin, FaInstagram, FaEnvelope, FaWhatsapp, FaCode, FaPaintBrush } from 'react-icons/fa';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+
+// --- Placeholder image URLs to make the app runnable without local files ---
+const heroImage = "https://placehold.co/1920x1080/6c757d/ffffff?text=My+Awesome+Business";
+const teamMember1 = "https://placehold.co/400x400/28a745/ffffff?text=Jane+Doe";
+const teamMember2 = "https://placehold.co/400x400/17a2b8/ffffff?text=John+Smith";
+
+// --- RevealOnScroll Component ---
+// This component adds a fade-in animation when a component scrolls into view.
+const RevealOnScroll = ({ children }) => {
+  const [isVisible, setVisible] = useState(false);
+  const domRef = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      // Check if the element is intersecting (in view)
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(entry.target); // Stop observing once it's visible
+        }
+      });
+    });
+
+    if (domRef.current) {
+      observer.observe(domRef.current);
+    }
+    return () => {
+      if (domRef.current) {
+        observer.unobserve(domRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      className={`reveal-on-scroll fade-in-section ${isVisible ? 'is-visible' : ''}`}
+      ref={domRef}
+    >
+      {children}
+    </div>
+  );
+};
+
+// --- Navbar Component ---
+const Navbar = () => (
+  <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+    <Container>
+      <a className="navbar-brand fw-bold" href="#hero">My Business</a>
+      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      <div className="collapse navbar-collapse" id="navbarNav">
+        <ul className="navbar-nav ms-auto">
+          {['about', 'services', 'projects', 'team', 'contact'].map(section => (
+            <li key={section} className="nav-item">
+              <ScrollLink
+                className="nav-link"
+                to={section}
+                smooth={true}
+                duration={500}
+                offset={-56}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </ScrollLink>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Container>
+  </nav>
+);
+
+// --- Hero Section ---
+const HeroSection = () => (
+  <header
+    id="hero"
+    className="hero-section text-center d-flex align-items-center justify-content-center"
+    style={{ backgroundImage: `url(${heroImage})` }}
+  >
+    <div className="overlay d-flex flex-column align-items-center justify-content-center p-5">
+      <h1 className="hero-heading">My Awesome Business</h1>
+      <p className="hero-subheading">We build beautiful and functional solutions for a better world.</p>
+    </div>
+  </header>
+);
+
+// --- About Section ---
+const AboutSection = () => (
+  <section id="about" className="py-5">
+    <Container>
+      <RevealOnScroll>
+        <div className="text-center mb-5">
+          <h2 className="section-title">About Us</h2>
+          <p className="section-subtitle">Building a legacy of excellence and innovation.</p>
+        </div>
+      </RevealOnScroll>
+      <Row className="align-items-center">
+        <Col md={6} className="text-center mb-4 mb-md-0">
+          <Image src="https://placehold.co/600x400/e9ecef/212529?text=About+Us+Image" fluid rounded />
+        </Col>
+        <Col md={6}>
+          <p className="about-text">
+            Founded in 2005, our firm began with a simple mission: to create architecture that is both beautiful and meaningful. Over the years, we have grown into a leading firm known for our commitment to sustainability, client collaboration, and bold, modern design. Our work has been recognized with numerous industry awards, and we continue to push the boundaries of what is possible.
+          </p>
+        </Col>
+      </Row>
+    </Container>
+  </section>
+);
+
+// --- Services Section ---
+const ServicesSection = () => (
+  <section id="services" className="py-5 bg-light">
+    <Container>
+      <RevealOnScroll>
+        <div className="text-center mb-5">
+          <h2 className="section-title">Our Services</h2>
+          <p className="section-subtitle">Solutions tailored to meet your unique business needs.</p>
+        </div>
+      </RevealOnScroll>
+      <Row className="g-4 d-flex align-items-stretch">
+        <Col md={4}>
+          <RevealOnScroll>
+            <Card className="h-100 text-center shadow-sm">
+              <Card.Body>
+                <FaHardHat className="service-icon" />
+                <Card.Title className="fw-bold">Architectural Design</Card.Title>
+                <Card.Text>Full-scope design from concept to construction, ensuring quality and innovation.</Card.Text>
+              </Card.Body>
+            </Card>
+          </RevealOnScroll>
+        </Col>
+        <Col md={4}>
+          <RevealOnScroll>
+            <Card className="h-100 text-center shadow-sm">
+              <Card.Body>
+                <FaLightbulb className="service-icon" />
+                <Card.Title className="fw-bold">Sustainable Solutions</Card.Title>
+                <Card.Text>Integrating eco-friendly practices to create energy-efficient and healthy buildings.</Card.Text>
+              </Card.Body>
+            </Card>
+          </RevealOnScroll>
+        </Col>
+        <Col md={4}>
+          <RevealOnScroll>
+            <Card className="h-100 text-center shadow-sm">
+              <Card.Body>
+                <FaChartArea className="service-icon" />
+                <Card.Title className="fw-bold">Urban Planning</Card.Title>
+                <Card.Text>Strategic planning for creating dynamic and functional urban spaces.</Card.Text>
+              </Card.Body>
+            </Card>
+          </RevealOnScroll>
+        </Col>
+      </Row>
+    </Container>
+  </section>
+);
+
+// --- New Projects Section ---
+const ProjectsSection = () => (
+  <section id="projects" className="py-5">
+    <Container>
+      <RevealOnScroll>
+        <div className="text-center mb-5">
+          <h2 className="section-title">Our Projects</h2>
+          <p className="section-subtitle">A showcase of our best work.</p>
+        </div>
+      </RevealOnScroll>
+      <Row className="g-4 d-flex align-items-stretch">
+        <Col md={4}>
+          <RevealOnScroll>
+            <Card className="h-100 shadow-sm">
+              <Card.Img variant="top" src="https://placehold.co/600x400/007bff/ffffff?text=Skyscraper+Design" />
+              <Card.Body>
+                <Card.Title className="fw-bold">Modern Skyscraper</Card.Title>
+                <Card.Text>An award-winning design focusing on vertical integration and green spaces.</Card.Text>
+              </Card.Body>
+            </Card>
+          </RevealOnScroll>
+        </Col>
+        <Col md={4}>
+          <RevealOnScroll>
+            <Card className="h-100 shadow-sm">
+              <Card.Img variant="top" src="https://placehold.co/600x400/dc3545/ffffff?text=Eco+Friendly+Housing" />
+              <Card.Body>
+                <Card.Title className="fw-bold">Eco-Community Housing</Card.Title>
+                <Card.Text>A sustainable residential project with a focus on community and renewable energy.</Card.Text>
+              </Card.Body>
+            </Card>
+          </RevealOnScroll>
+        </Col>
+        <Col md={4}>
+          <RevealOnScroll>
+            <Card className="h-100 shadow-sm">
+              <Card.Img variant="top" src="https://placehold.co/600x400/ffc107/212529?text=Urban+Revitalization" />
+              <Card.Body>
+                <Card.Title className="fw-bold">Downtown Revitalization</Card.Title>
+                <Card.Text>Strategic urban planning to breathe new life into a historic city center.</Card.Text>
+              </Card.Body>
+            </Card>
+          </RevealOnScroll>
+        </Col>
+      </Row>
+    </Container>
+  </section>
+);
+
+// --- Team Section ---
+const TeamSection = () => {
+  const teamMembers = [
+    { name: 'Jane Doe', title: 'Chief Architect', bio: 'Renowned for innovative design.', image: teamMember1 },
+    { name: 'John Smith', title: 'Lead Designer', bio: 'Expert in minimalist and functional spaces.', image: teamMember2 },
+  ];
+  return (
+    <section id="team" className="py-5 bg-light">
+      <Container>
+        <RevealOnScroll>
+          <div className="text-center mb-5">
+            <h2 className="section-title">Our Team</h2>
+            <p className="section-subtitle">Passionate experts dedicated to your success.</p>
+          </div>
+        </RevealOnScroll>
+        <Row className="g-4 justify-content-center d-flex align-items-stretch">
+          {teamMembers.map((member, i) => (
+            <Col md={6} key={i}>
+              <RevealOnScroll>
+                <Card className="h-100 text-center shadow-sm">
+                  <Card.Body>
+                    <Image src={member.image} roundedCircle className="team-img mb-3" />
+                    <Card.Title className="fw-bold">{member.name}</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">{member.title}</Card.Subtitle>
+                    <Card.Text>{member.bio}</Card.Text>
+                    <div className="mt-3">
+                      <FaLinkedin size="1.5em" className="me-2 text-primary" />
+                      <FaInstagram size="1.5em" className="text-danger" />
+                    </div>
+                  </Card.Body>
+                </Card>
+              </RevealOnScroll>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </section>
+  );
+};
+
+// --- Contact Section ---
+const ContactSection = () => (
+  <section id="contact" className="py-5">
+    <Container>
+      <RevealOnScroll>
+        <div className="text-center mb-5">
+          <h2 className="section-title">Get in Touch</h2>
+          <p className="section-subtitle">Contact us through your preferred method below.</p>
+        </div>
+      </RevealOnScroll>
+      <Row className="g-4 justify-content-center d-flex align-items-stretch">
+        <Col md={4}>
+          <RevealOnScroll>
+            <Card className="h-100 text-center shadow-sm">
+              <Card.Body className="d-flex flex-column">
+                <FaEnvelope size="4em" className="text-primary mb-3" />
+                <Card.Title>Email</Card.Title>
+                <Card.Text>Send us an email directly.</Card.Text>
+                <a href="mailto:contact@mybusiness.com" className="btn btn-custom mt-auto">
+                  Send Email
+                </a>
+              </Card.Body>
+            </Card>
+          </RevealOnScroll>
+        </Col>
+        <Col md={4}>
+          <RevealOnScroll>
+            <Card className="h-100 text-center shadow-sm">
+              <Card.Body className="d-flex flex-column">
+                <FaWhatsapp size="4em" className="text-success mb-3" />
+                <Card.Title>WhatsApp</Card.Title>
+                <Card.Text>Start a chat with our team.</Card.Text>
+                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="btn btn-custom btn-success mt-auto">
+                  Start Chat
+                </a>
+              </Card.Body>
+            </Card>
+          </RevealOnScroll>
+        </Col>
+        <Col md={4}>
+          <RevealOnScroll>
+            <Card className="h-100 text-center shadow-sm">
+              <Card.Body className="d-flex flex-column">
+                <FaInstagram size="4em" className="text-danger mb-3" />
+                <Card.Title>Instagram</Card.Title>
+                <Card.Text>Follow us and send a DM.</Card.Text>
+                <a href="https://www.instagram.com/mybusiness" target="_blank" rel="noopener noreferrer" className="btn btn-custom btn-danger mt-auto">
+                  Visit Profile
+                </a>
+              </Card.Body>
+            </Card>
+          </RevealOnScroll>
+        </Col>
+      </Row>
+    </Container>
+  </section>
+);
+
+// --- Footer Component ---
+const Footer = () => (
+  <footer className="bg-dark text-white text-center py-4">
+    <Container>
+      <p className="mb-0">© 2024 My Awesome Business. All Rights Reserved.</p>
+    </Container>
+  </footer>
+);
+
+// --- Main App Component ---
+export default function App() {
+  const scrollTop = () => scroll.scrollToTop({ smooth: true, duration: 500 });
+
+  return (
+    <>
+      <Navbar />
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <ServicesSection />
+        <ProjectsSection />
+        <TeamSection />
+        <ContactSection />
+      </main>
+      <Footer />
+      <Button
+        id="scroll-to-top"
+        onClick={scrollTop}
+        className="scroll-to-top-btn"
+        variant="light"
+        aria-label="Scroll to top"
+      >
+        <FaArrowUp />
+      </Button>
+      {/* Custom CSS for a better look and feel */}
+      <style>{`
+        body {
+          font-family: 'Inter', sans-serif;
+          scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4, h5, h6 {
+          font-weight: 700;
+        }
+        .hero-section {
+          height: 100vh;
+          background-size: cover;
+          background-position: center;
+          position: relative;
+        }
+        .overlay {
+          background-color: rgba(0, 0, 0, 0.6);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          color: white;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .hero-heading {
+          font-size: 3rem;
+          font-weight: 900;
+          margin-bottom: 0.5rem;
+        }
+        .hero-subheading {
+          font-size: 1.25rem;
+          font-weight: 300;
+        }
+        @media (min-width: 768px) {
+          .hero-heading {
+            font-size: 5rem;
+          }
+          .hero-subheading {
+            font-size: 1.5rem;
+          }
+        }
+        .section-title {
+          font-size: 2.5rem;
+          margin-bottom: 0.5rem;
+        }
+        .section-subtitle {
+          font-size: 1.1rem;
+          color: #6c757d;
+        }
+        .about-text {
+          font-size: 1.1rem;
+          line-height: 1.8;
+          color: #495057;
+        }
+        .service-icon {
+          font-size: 3.5rem;
+          color: #007bff;
+          margin-bottom: 1rem;
+        }
+        .team-img {
+          width: 150px;
+          height: 150px;
+          object-fit: cover;
+          border: 4px solid #fff;
+          box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        .scroll-to-top-btn {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          z-index: 1000;
+          transition: transform 0.3s ease;
+        }
+        .scroll-to-top-btn:hover {
+          transform: translateY(-5px);
+        }
+        .reveal-on-scroll {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal-on-scroll.is-visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .btn-custom {
+          padding: 10px 20px;
+          border-radius: 50px;
+          text-transform: uppercase;
+          font-weight: bold;
+          transition: all 0.3s ease;
+        }
+        .btn-custom:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+      `}</style>
+    </>
+  );
+}
+
+*******option2*******
+
+import React, { useRef, useEffect, useState } from 'react';
+import { Container, Row, Col, Card, Image, Button } from 'react-bootstrap';
+import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
+import { FaArrowUp, FaHardHat, FaLightbulb, FaChartArea, FaLinkedin, FaInstagram, FaEnvelope, FaWhatsapp, FaCode, FaPaintBrush } from 'react-icons/fa';
+import heroImage from './assets/images/img.jpg';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+
+// --- Placeholder image URLs to make the app runnable without local files ---
+//const heroImage = "https://placehold.co/1920x1080/6c757d/ffffff?text=My+Awesome+Business";
+const teamMember1 = "https://placehold.co/400x400/28a745/ffffff?text=Jane+Doe";
+const teamMember2 = "https://placehold.co/400x400/17a2b8/ffffff?text=John+Smith";
+
+// --- Project Data (for demonstration purposes) ---
+const projectsData = [
+  {
+    id: 'skyscraper',
+    title: 'Modern Skyscraper',
+    description: 'An award-winning design focusing on vertical integration and green spaces. Our team meticulously planned every detail, from the structural integrity to the aesthetic finishes, to create a landmark building that is both sustainable and visually stunning. The project incorporates cutting-edge technology for energy efficiency and includes public-facing green spaces to benefit the entire community.',
+    image: "https://placehold.co/1200x800/2C2C2C/ffffff?text=Modern+Skyscraper+Design",
+  },
+  {
+    id: 'eco-housing',
+    title: 'Eco-Community Housing',
+    description: 'A sustainable residential project with a focus on community and renewable energy. This project was a collaboration with local residents to create affordable, eco-friendly homes. Each unit is equipped with solar panels and a rainwater harvesting system. The community spaces are designed to encourage interaction and foster a sense of belonging among residents.',
+    image: "https://placehold.co/1200x800/2C2C2C/ffffff?text=Eco+Friendly+Housing",
+  },
+  {
+    id: 'urban-revitalization',
+    title: 'Downtown Revitalization',
+    description: 'Strategic urban planning to breathe new life into a historic city center. Our plan involved restoring historic buildings, creating pedestrian-friendly zones, and introducing new public art installations. The project has successfully revitalized the downtown area, attracting new businesses and becoming a cultural hub for the city.',
+    image: "https://placehold.co/1200x800/2C2C2C/ffffff?text=Urban+Revitalization",
+  },
+  // Add more projects here to see the list page in action
+  {
+    id: 'library-design',
+    title: 'Community Library',
+    description: 'A modern library design focused on accessibility and community engagement. The building features an open-concept layout, natural light, and state-of-the-art digital resources. It serves as a central hub for learning and cultural events.',
+    image: "https://placehold.co/1200x800/2C2C2C/ffffff?text=Community+Library",
+  },
+];
+
+
+// --- RevealOnScroll Component ---
+// This component adds a fade-in animation when a component scrolls into view.
+const RevealOnScroll = ({ children }) => {
+  const [isVisible, setVisible] = useState(false);
+  const domRef = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      // Check if the element is intersecting (in view)
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(entry.target); // Stop observing once it's visible
+        }
+      });
+    });
+
+    if (domRef.current) {
+      observer.observe(domRef.current);
+    }
+    return () => {
+      if (domRef.current) {
+        observer.unobserve(domRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      className={`reveal-on-scroll fade-in-section ${isVisible ? 'is-visible' : ''}`}
+      ref={domRef}
+    >
+      {children}
+    </div>
+  );
+};
+
+// --- Navbar Component ---
+const Navbar = ({ onNavigate }) => (
+  <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+    <Container>
+      <a className="navbar-brand fw-bold" href="#hero">My Business</a>
+      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      <div className="collapse navbar-collapse" id="navbarNav">
+        <ul className="navbar-nav ms-auto">
+          {/* We now handle navigation for the Projects link differently */}
+          {['about', 'services', 'team', 'contact'].map(section => (
+            <li key={section} className="nav-item">
+              <ScrollLink
+                className="nav-link"
+                to={section}
+                smooth={true}
+                duration={500}
+                offset={-56}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </ScrollLink>
+            </li>
+          ))}
+          <li className="nav-item">
+            <a href="#" className="nav-link" onClick={() => onNavigate('projects-list')}>
+              Projects
+            </a>
+          </li>
+        </ul>
+      </div>
+    </Container>
+  </nav>
+);
+
+// --- Hero Section ---
+const HeroSection = () => (
+  <header
+    id="hero"
+    className="hero-section text-center d-flex align-items-center justify-content-center"
+    style={{ backgroundImage: `url(${heroImage})` }}
+  >
+    <div className="overlay d-flex flex-column align-items-center justify-content-center p-5">
+      <h1 className="hero-heading">My Awesome Business</h1>
+      <p className="hero-subheading">We build beautiful and functional solutions for a better world.</p>
+    </div>
+  </header>
+);
+
+// --- About Section ---
+const AboutSection = () => (
+  <section id="about" className="py-5">
+    <Container>
+      <RevealOnScroll>
+        <div className="text-center mb-5">
+          <h2 className="section-title">About Us</h2>
+          <p className="section-subtitle">Building a legacy of excellence and innovation.</p>
+        </div>
+      </RevealOnScroll>
+      <Row className="align-items-center">
+        <Col md={6} className="text-center mb-4 mb-md-0">
+          <Image src="https://placehold.co/600x400/e9ecef/212529?text=About+Us+Image" fluid rounded />
+        </Col>
+        <Col md={6}>
+          <p className="about-text">
+            Founded in 2005, our firm began with a simple mission: to create architecture that is both beautiful and meaningful. Over the years, we have grown into a leading firm known for our commitment to sustainability, client collaboration, and bold, modern design. Our work has been recognized with numerous industry awards, and we continue to push the boundaries of what is possible.
+          </p>
+        </Col>
+      </Row>
+    </Container>
+  </section>
+);
+
+// --- Services Section ---
+const ServicesSection = () => (
+  <section id="services" className="py-5 bg-light">
+    <Container>
+      <RevealOnScroll>
+        <div className="text-center mb-5">
+          <h2 className="section-title">Our Services</h2>
+          <p className="section-subtitle">Solutions tailored to meet your unique business needs.</p>
+        </div>
+      </RevealOnScroll>
+      <Row className="g-4 d-flex align-items-stretch">
+        <Col md={4}>
+          <RevealOnScroll>
+            <Card className="h-100 text-center shadow-sm">
+              <Card.Body>
+                <FaHardHat className="service-icon" />
+                <Card.Title className="fw-bold">Architectural Design</Card.Title>
+                <Card.Text>Full-scope design from concept to construction, ensuring quality and innovation.</Card.Text>
+              </Card.Body>
+            </Card>
+          </RevealOnScroll>
+        </Col>
+        <Col md={4}>
+          <RevealOnScroll>
+            <Card className="h-100 text-center shadow-sm">
+              <Card.Body>
+                <FaLightbulb className="service-icon" />
+                <Card.Title className="fw-bold">Sustainable Solutions</Card.Title>
+                <Card.Text>Integrating eco-friendly practices to create energy-efficient and healthy buildings.</Card.Text>
+              </Card.Body>
+            </Card>
+          </RevealOnScroll>
+        </Col>
+        <Col md={4}>
+          <RevealOnScroll>
+            <Card className="h-100 text-center shadow-sm">
+              <Card.Body>
+                <FaChartArea className="service-icon" />
+                <Card.Title className="fw-bold">Urban Planning</Card.Title>
+                <Card.Text>Strategic planning for creating dynamic and functional urban spaces.</Card.Text>
+              </Card.Body>
+            </Card>
+          </RevealOnScroll>
+        </Col>
+      </Row>
+    </Container>
+  </section>
+);
+
+// --- Projects Section (on Home Page) ---
+const ProjectsSection = ({ onNavigate }) => (
+  <section id="projects" className="py-5">
+    <Container className="text-center">
+      <RevealOnScroll>
+        <div className="text-center mb-5">
+          <h2 className="section-title">Our Projects</h2>
+          <p className="section-subtitle">A showcase of our best work.</p>
+        </div>
+        <Button  onClick={() => onNavigate('projects-list')} variant="primary" size="lg" style={{ backgroundColor: '#2c2c2c', borderColor: '#2c2c2c', color: 'white' }}>
+          View All Projects
+        </Button>
+      </RevealOnScroll>
+    </Container>
+  </section>
+);
+
+// --- New Projects List Page Component ---
+const ProjectsListPage = ({ onSelectProject, onBack }) => (
+  <section className="py-5">
+    <Container className="mt-5 pt-5">
+      <Button onClick={onBack} variant="secondary" className="mb-4">Back to Home</Button>
+      <div className="text-center mb-5">
+        <h2 className="section-title">All Our Projects</h2>
+        <p className="section-subtitle">Explore our portfolio of innovative designs.</p>
+      </div>
+      <Row className="g-4 d-flex align-items-stretch">
+        {projectsData.map((project, index) => (
+          <Col md={4} key={index}>
+            <RevealOnScroll>
+              <Card 
+                className="h-100 shadow-sm project-card"
+                onClick={() => onSelectProject(project.id)}
+              >
+                <Card.Img variant="top" src={project.image} />
+                <Card.Body>
+                  <Card.Title className="fw-bold">{project.title}</Card.Title>
+                  <Card.Text>
+                    {project.description.split('.')[0]}.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </RevealOnScroll>
+          </Col>
+        ))}
+      </Row>
+    </Container>
+  </section>
+);
+
+// --- New Project Detail Component ---
+const ProjectDetail = ({ projectId, onBack }) => {
+  const project = projectsData.find(p => p.id === projectId);
+  if (!project) {
+    return (
+      <Container className="py-5 text-center">
+        <h2>Project not found!</h2>
+        <Button onClick={onBack} variant="primary" className="mt-3">Go Back</Button>
+      </Container>
+    );
+  }
+
+  return (
+    <section className="py-5">
+      <Container className="mt-5 pt-5">
+        <Button onClick={onBack} variant="primary" className="mb-4">Go Back to Projects</Button>
+        <h2 className="section-title text-center mb-4">{project.title}</h2>
+        <Image src={project.image} fluid rounded className="mb-4" />
+        <p className="project-detail-text">
+          {project.description}
+        </p>
+      </Container>
+    </section>
+  );
+};
+
+
+// --- Team Section ---
+const TeamSection = () => {
+  const teamMembers = [
+    { name: 'Jane Doe', title: 'Chief Architect', bio: 'Renowned for innovative design.', image: teamMember1,linkedin: 'https://www.linkedin.com/in/john-smith-example',
+      instagram: 'https://www.instagram.com/john-smith-example' },
+    { name: 'John Smith', title: 'Lead Designer', bio: 'Expert in minimalist and functional spaces.', image: teamMember2,linkedin: 'https://www.linkedin.com/in/john-smith-example',
+      instagram: 'https://www.instagram.com/john-smith-example' },
+  ];
+  return (
+    <section id="team" className="py-5 bg-light">
+      <Container>
+        <RevealOnScroll>
+          <div className="text-center mb-5">
+            <h2 className="section-title">Our Team</h2>
+            <p className="section-subtitle">Passionate experts dedicated to your success.</p>
+          </div>
+        </RevealOnScroll>
+        <Row className="g-4 justify-content-center d-flex align-items-stretch">
+          {teamMembers.map((member, i) => (
+            <Col md={6} key={i}>
+              <RevealOnScroll>
+                <Card className="h-100 text-center shadow-sm">
+                  <Card.Body>
+                    <Image src={member.image} roundedCircle className="team-img mb-3" />
+                    <Card.Title className="fw-bold">{member.name}</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">{member.title}</Card.Subtitle>
+                    <Card.Text>{member.bio}</Card.Text>
+                    <div className="mt-3">
+                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="me-2 text-primary">
+                        <FaLinkedin size="1.5em" />
+                      </a>
+                      <a href={member.instagram} target="_blank" rel="noopener noreferrer" className="text-danger">
+                        <FaInstagram size="1.5em" />
+                      </a>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </RevealOnScroll>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </section>
+  );
+};
+
+// --- Contact Section ---
+const ContactSection = () => (
+  <section id="contact" className="py-5">
+    <Container>
+      <RevealOnScroll>
+        <div className="text-center mb-5">
+          <h2 className="section-title">Get in Touch</h2>
+          <p className="section-subtitle">Contact us through your preferred method below.</p>
+        </div>
+      </RevealOnScroll>
+      <Row className="g-4 justify-content-center d-flex align-items-stretch">
+        <Col md={4}>
+          <RevealOnScroll>
+            <Card className="h-100 text-center shadow-sm">
+              <Card.Body className="d-flex flex-column">
+                <FaEnvelope size="4em" className="text-primary mb-3" />
+                <Card.Title>Email</Card.Title>
+                <Card.Text>Send us an email directly.</Card.Text>
+                <a href="mailto:contact@mybusiness.com" className="btn btn-custom btn-primary mt-auto">
+                  Send Email
+                </a>
+              </Card.Body>
+            </Card>
+          </RevealOnScroll>
+        </Col>
+        <Col md={4}>
+          <RevealOnScroll>
+            <Card className="h-100 text-center shadow-sm">
+              <Card.Body className="d-flex flex-column">
+                <FaWhatsapp size="4em" className="text-success mb-3" />
+                <Card.Title>WhatsApp</Card.Title>
+                <Card.Text>Start a chat with our team.</Card.Text>
+                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="btn btn-custom btn-primary btn-lg mt-auto">
+                  Start Chat
+                </a>
+              </Card.Body>
+            </Card>
+          </RevealOnScroll>
+        </Col>
+        <Col md={4}>
+          <RevealOnScroll>
+            <Card className="h-100 text-center shadow-sm">
+              <Card.Body className="d-flex flex-column">
+                <FaInstagram size="4em" className="text-danger mb-3" />
+                <Card.Title>Instagram</Card.Title>
+                <Card.Text>Follow us and send a DM.</Card.Text>
+                <a href="https://www.instagram.com/mybusiness" target="_blank" rel="noopener noreferrer" className="btn btn-custom btn-danger mt-auto">
+                  Visit Profile
+                </a>
+              </Card.Body>
+            </Card>
+          </RevealOnScroll>
+        </Col>
+      </Row>
+    </Container>
+  </section>
+);
+
+// --- Footer Component ---
+const Footer = () => (
+  <footer className="bg-dark text-white text-center py-4">
+    <Container>
+      <p className="mb-0">© 2025 All Rights Reserved.</p>
+    </Container>
+  </footer>
+);
+
+// --- Main App Component ---
+export default function App() {
+  const scrollTop = () => scroll.scrollToTop({ smooth: true, duration: 500 });
+  const [currentPage, setCurrentPage] = useState('home');
+
+  const renderContent = () => {
+    switch (currentPage) {
+      case 'home':
+        return (
+          <main>
+            <HeroSection />
+            <AboutSection />
+            <ServicesSection />
+            <ProjectsSection onNavigate={setCurrentPage} />
+            <TeamSection />
+            <ContactSection />
+          </main>
+        );
+      case 'projects-list':
+        return <ProjectsListPage onSelectProject={setCurrentPage} onBack={() => setCurrentPage('home')} />;
+      default:
+        return <ProjectDetail projectId={currentPage} onBack={() => setCurrentPage('projects-list')} />;
+    }
+  };
+
+  return (
+    <>
+      <Navbar onNavigate={setCurrentPage} />
+      {currentPage === 'home' && <Navbar onNavigate={setCurrentPage} />}
+      {renderContent()}
+      <Footer />
+      <Button
+        id="scroll-to-top"
+        onClick={scrollTop}
+        className="scroll-to-top-btn"
+        variant="light"
+        aria-label="Scroll to top"
+      >
+        <FaArrowUp />
+      </Button>
+      {/* Custom CSS for a better look and feel */}
+      <style>{`
+        body {
+          font-family: 'Inter', sans-serif;
+          scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4, h5, h6 {
+          font-weight: 700;
+        }
+        .hero-section {
+          height: 100vh;
+          background-size: cover;
+          background-position: center;
+          position: relative;
+        }
+        .overlay {
+          background-color: rgba(0, 0, 0, 0.6);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          color: white;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .hero-heading {
+          font-size: 3rem;
+          font-weight: 900;
+          margin-bottom: 0.5rem;
+        }
+        .hero-subheading {
+          font-size: 1.25rem;
+          font-weight: 300;
+        }
+        @media (min-width: 768px) {
+          .hero-heading {
+            font-size: 5rem;
+          }
+          .hero-subheading {
+            font-size: 1.5rem;
+          }
+        }
+        .section-title {
+          font-size: 2.5rem;
+          margin-bottom: 0.5rem;
+        }
+        .section-subtitle {
+          font-size: 1.1rem;
+          color: #6c757d;
+        }
+        .about-text {
+          font-size: 1.1rem;
+          line-height: 1.8;
+          color: #495057;
+        }
+        .service-icon {
+          font-size: 3.5rem;
+          color: #007bff;
+          margin-bottom: 1rem;
+        }
+        .team-img {
+          width: 150px;
+          height: 150px;
+          object-fit: cover;
+          border: 4px solid #fff;
+          box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        .scroll-to-top-btn {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          z-index: 1000;
+          transition: transform 0.3s ease;
+        }
+        .scroll-to-top-btn:hover {
+          transform: translateY(-5px);
+        }
+        .reveal-on-scroll {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal-on-scroll.is-visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .btn-custom {
+          padding: 10px 20px;
+          border-radius: 50px;
+          text-transform: uppercase;
+          font-weight: bold;
+          transition: all 0.3s ease;
+        }
+        .btn-custom:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .project-card {
+          cursor: pointer;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+        .project-detail-text {
+          font-size: 1.1rem;
+          line-height: 1.8;
+          color: #495057;
+        }
+      `}</style>
+    </>
+  );
+}
