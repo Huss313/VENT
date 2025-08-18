@@ -1,11 +1,10 @@
-/* ===== Base Styles ===== */
 :root {
-  --primary: #2a9d8f;       /* Sophisticated teal */
+  --primary: #2a9d8f;       
   --primary-dark: #1d7870;
-  --secondary: #264653;     /* Deep navy */
+  --secondary: #264653;     
   --light: #f8f9fa;
   --dark: #212529;
-  --accent: #e76f51;        /* Warm coral accent */
+  --accent: #e76f51;        
   --text: #333333;
   --text-light: #6c757d;
   --white: #ffffff;
@@ -22,14 +21,12 @@ body {
   overflow-x: hidden;
 }
 
-/* ===== Typography ===== */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   letter-spacing: -0.5px;
 }
 
-/* ===== Hero Section ===== */
 .hero-section {
   height: 100vh;
   min-height: 800px;
@@ -81,8 +78,6 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--accent);
 }
 
-
-/* ===== Navigation ===== */
 .navbar {
   transition: var(--transition);
   backdrop-filter: blur(10px);
@@ -125,7 +120,6 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
 }
 
-/* ===== Sections ===== */
 .section {
   padding: 8rem 0;
   position: relative;
@@ -155,7 +149,6 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto 4rem;
 }
 
-/* ===== Cards ===== */
 .card {
   border: none;
   border-radius: 8px;
@@ -178,7 +171,6 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.05);
 }
 
-/* ===== Services ===== */
 .service-icon {
   font-size: 3rem;
   color: var(--primary);
@@ -191,7 +183,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--accent);
 }
 
-/* ===== Team ===== */
 .team-img {
   width: 180px;
   height: 180px;
@@ -216,11 +207,11 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateX(40px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
@@ -245,15 +236,52 @@ h1, h2, h3, h4, h5, h6 {
   font-family:'Courier New', Courier, monospace; /* Professional yet approachable */
   font-size: 1.3rem; /* 20-21px equivalent - authoritative yet readable */
   line-height: 1.7; /* Extra breathing room for larger text */
-  color: #2a2a2a; /* Slightly softer than pure black */
+  color: #030303; /* Slightly softer than pure black */
   max-width: 760px; /* Slightly narrower to compensate for larger text */
   margin: 0 auto;
   padding: 25px;
   letter-spacing: 3px;
-  font-weight: 400; /* Regular weight for clean appearance */
+  font-weight: 600; /* Regular weight for clean appearance */
+  animation: 
+    typing 6s steps(100, end) forwards,
+    blink-caret 0.75s step-end infinite;
+    overflow: hidden;
 }
 
-.about-text h1 {
-  font-size: 1.3rem; /* ~35px */
-  margin: 40px 0 20px;
+.about-text::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  animation: 
+    reveal 5s forwards,
+    blink 0.5s infinite 5s; /* Blink after reveal */
+}
+
+@keyframes reveal {
+  to { left: 100%; }
+}
+
+@keyframes blink {
+  to { background-color: transparent; }
+}
+
+
+.about-text span {
+  display: block;
+  opacity: 0;
+  animation: fadeIn 0.6s forwards;
+}
+
+/* Add delays for each line */
+.about-text span:nth-child(1) { animation-delay: 2.5s; }
+.about-text span:nth-child(2) { animation-delay: 3s; }
+.about-text span:nth-child(3) { animation-delay: 3.5s; }
+.about-text span:nth-child(4) { animation-delay: 4.5s; }
+
+@keyframes fadeIn {
+  to { opacity: 1; }
 }

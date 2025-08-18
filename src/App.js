@@ -200,8 +200,11 @@ const AboutSection = () => (
         </Col>
         <Col md={6}>
           <p className="about-text">
-            Vent is an independent architectural and design studio founded by Saja Tarshishi and Ali Chaer. Inspired by the idea of  “ ventilation ”  as a window to the world, Vent is a platform that opens space for fresh perspectives in architecture. We focus on creating thoughtful, functional, and timeless designs — from intimate interiors to large-scale developments. Through our work, we aim to craft spaces that breathe, connect, and inspire.
-          </p>
+  <span>Vent is an independent architectural and design studio founded by Saja Tarshishi and Ali Chaer.</span>
+  <span>Inspired by the idea of "ventilation" as a window to the world, Vent is a platform that opens space for fresh perspectives in architecture.</span>
+  <span>We focus on creating thoughtful, functional, and timeless designs — from intimate interiors to large-scale developments.</span>
+  <span>Through our work, we aim to craft spaces that breathe, connect, and inspire.</span>
+</p>
         </Col>
       </Row>
     </Container>
