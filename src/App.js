@@ -48,20 +48,20 @@ const projectsData = [
    {
     id: 'skyscraper',
     title: 'Tower s1',
-    description: 'This new villa project shows a clean, modern architectural language with sharp volumes, generous glazing, and a seamless indoor-outdoor relationship. The design emphasizes openness and elegance, using light tones and warm materials to enhance natural light. The outdoor space, including a pool and landscaped areas, integrates effortlessly with the architecture, creating a serene yet sophisticated environment.',
+    description: 'This tower project, located in Saudi Arabia, was designed with a deep sensitivity to the region’s harsh climate and environmental conditions. The architectural approach focuses on performance and resilience, featuring carefully studied openings and strategically placed metal louvres that optimize natural ventilation, reduce solar gain, and enhance the building’s visual identity. The result is a bold, climate-responsive form that blends functionality with refined contemporary expression.',
     image: exx3,
 
   },
   {
     id: 'eco-housing',
     title: 'Villa RV',
-    description: 'This project showcases a luxurious neoclassical villa designed with a strong emphasis on symmetry, grand proportions, and elegant detailing. The use of classical columns, arched windows, and a central fountain reflects a timeless aesthetic, while modern landscaping and materials bring it into the present. The design balances prestige with comfort, making it both a statement and a sanctuary.',
+    description: 'This new villa project shows a clean, modern architectural language with sharp volumes, generous glazing, and a seamless indoor-outdoor relationship. The design emphasizes openness and elegance, using light tones and warm materials to enhance natural light. The outdoor space, including a pool and landscaped areas, integrates effortlessly with the architecture, creating a serene yet sophisticated environment.',
     image: exx4,
   },
   {
     id: 'urban-revitalization',
     title: 'LS V Interior',
-    description: 'IS Villa is a minimalist interior design project located in Abbasieh, South Lebanon. Focused on simplicity, functionality, and clean modern lines, the design offers calm, open spaces tailored for everyday living.',
+    description: 'LS Villa is a minimalist interior design project located in Abbasieh, South Lebanon. Focused on simplicity, functionality, and clean modern lines, the design offers calm, open spaces tailored for everyday living.',
     image: innt1,
   },
   {
@@ -206,7 +206,7 @@ const AboutSection = () => (
         </Col>
         <Col md={6}>
           <p className="about-text">
-            <h2>Vent is an independent architectural and design studio founded by Saja Tarshishi and Ali Chaer. Inspired by the idea of  “ ventilation ”  as a window to the world, Vent is a platform that opens space for fresh perspectives in architecture. We focus on creating thoughtful, functional, and timeless designs — from intimate interiors to large-scale developments. Through our work, we aim to craft spaces that breathe, connect, and inspire.</h2>
+            Vent is an independent architectural and design studio founded by Saja Tarshishi and Ali Chaer. Inspired by the idea of  “ ventilation ”  as a window to the world, Vent is a platform that opens space for fresh perspectives in architecture. We focus on creating thoughtful, functional, and timeless designs — from intimate interiors to large-scale developments. Through our work, we aim to craft spaces that breathe, connect, and inspire.
           </p>
         </Col>
       </Row>

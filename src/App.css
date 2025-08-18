@@ -242,7 +242,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .about-text{
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; /* Professional yet approachable */
+  font-family:'Courier New', Courier, monospace; /* Professional yet approachable */
   font-size: 1.3rem; /* 20-21px equivalent - authoritative yet readable */
   line-height: 1.7; /* Extra breathing room for larger text */
   color: #2a2a2a; /* Slightly softer than pure black */
@@ -253,7 +253,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400; /* Regular weight for clean appearance */
 }
 
-.about-text h2 {
-  font-size: 1.9rem; /* ~35px */
+.about-text h1 {
+  font-size: 1.3rem; /* ~35px */
   margin: 40px 0 20px;
 }
