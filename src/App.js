@@ -206,7 +206,7 @@ const AboutSection = () => (
         </Col>
         <Col md={6}>
           <p className="about-text">
-            Vent is an independent architectural and design studio founded by Saja Tarshishi and Ali Chaer. Inspired by the idea of “ventilation” as a window to the world, Vent is a platform that opens space for fresh perspectives in architecture. We focus on creating thoughtful, functional, and timeless designs — from intimate interiors to large-scale developments. Through our work, we aim to craft spaces that breathe, connect, and inspire.
+            <h2>Vent is an independent architectural and design studio founded by Saja Tarshishi and Ali Chaer. Inspired by the idea of “ventilation” as a window to the world, Vent is a platform that opens space for fresh perspectives in architecture. We focus on creating thoughtful, functional, and timeless designs — from intimate interiors to large-scale developments. Through our work, we aim to craft spaces that breathe, connect, and inspire.</h2>
           </p>
         </Col>
       </Row>
@@ -543,9 +543,7 @@ export default function App() {
   };
 
   return (
-    <>
-      {/* Conditionally render the Navbar only on the 'home' page */}
-      <Navbar onNavigate={setCurrentPage} currentPage={currentPage} />
+    <> 
       {currentPage === 'home' &&  <Navbar onNavigate={setCurrentPage} />}
       {renderContent()}
       <Footer />
