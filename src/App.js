@@ -34,52 +34,52 @@ const projectsData = [
   {
     id: 'skyscraper',
     title: 'residential compound',
-    description: 'A thoughtfully planned residential compound that blends privacy with communal connectivity. The design features clusters of modern villas and low-rise apartments arranged around shared green spaces, pedestrian pathways, and recreational amenities. Neutral-toned facades with timber accents create warmth, while large windows and terraces encourage indoor-outdoor living. Landscaped courtyards, swimming pools, and a central clubhouse foster social interaction, making it an ideal balance of serenity and vibrancy.',
+    description: 'A modern residential compound featuring clean lines, floating volumes, and a bold architectural form. The landscape is designed with stepped levels, greenery to create a balanced and inviting outdoor space that enhances the overall experience.',
     image: exx1,
     
   },
    {
     id: 'skyscraper',
     title: 'Building R',
-    description: 'Building R redefines city skylines with its bold, geometric form and dynamic mixed-use program. Combining retail, office, and co-living spaces, its façade alternates between glass curtain walls and textured metal panels, creating rhythm and depth. Setbacks at higher levels provide terraced gardens, offering occupants green retreats with panoramic views. The ground floor features a double-height atrium and vibrant street-facing cafés, activating the urban fabric.',
+    description: 'This project explores the balance between bold geometric volumes and natural integration. The design emphasizes layered facades, deep frames, and material contrast to create visual rhythm and spatial depth. With generous balconies, dynamic shadows, and integrated greenery, the architecture promotes openness and connection to the outdoors.',
     image: exx2,
     
   },
    {
     id: 'skyscraper',
     title: 'Tower s1',
-    description: 'A soaring residential Tower S1 epitomizes vertical elegance with its slender profile and shimmering glass-and-steel exterior. The façade’s vertical fins reduce solar glare while creating a striking visual identity. Sky lobbies and cantilevered balconies provide residents with breathtaking cityscape vistas. The podium includes a landscaped plaza with water features, seamlessly connecting the tower to its downtown context.',
+    description: 'This new villa project shows a clean, modern architectural language with sharp volumes, generous glazing, and a seamless indoor-outdoor relationship. The design emphasizes openness and elegance, using light tones and warm materials to enhance natural light. The outdoor space, including a pool and landscaped areas, integrates effortlessly with the architecture, creating a serene yet sophisticated environment.',
     image: exx3,
 
   },
   {
     id: 'eco-housing',
     title: 'Villa RV',
-    description: 'Villa RV is a minimalist retreat nestled in an arid landscape, designed to embrace extreme climates. Its low-slung, horizontal form features rammed earth walls for thermal mass and deep overhangs for shade. A central courtyard with a reflective pool acts as a cooling microclimate, while floor-to-ceiling sliding glass walls blur boundaries between interior and exterior. The muted material palette (sand-toned concrete, oxidized steel) mirrors the desert’s natural hues.',
+    description: 'This project showcases a luxurious neoclassical villa designed with a strong emphasis on symmetry, grand proportions, and elegant detailing. The use of classical columns, arched windows, and a central fountain reflects a timeless aesthetic, while modern landscaping and materials bring it into the present. The design balances prestige with comfort, making it both a statement and a sanctuary.',
     image: exx4,
   },
   {
     id: 'urban-revitalization',
     title: 'LS V Interior',
-    description: 'Strategic urban planning to breathe new life into a historic city center. Our plan involved restoring historic buildings, creating pedestrian-friendly zones, and introducing new public art installations. The project has successfully revitalized the downtown area, attracting new businesses and becoming a cultural hub for the city.',
+    description: 'IS Villa is a minimalist interior design project located in Abbasieh, South Lebanon. Focused on simplicity, functionality, and clean modern lines, the design offers calm, open spaces tailored for everyday living.',
     image: innt1,
   },
   {
     id: 'library-design',
     title: 'RY Interior',
-    description: 'A bold transformation of a raw industrial space into a vibrant loft, RY Interior celebrates exposed textures—concrete ceilings, steel beams, and brick walls—balanced with curated modernity. The open-plan living area features a monolithic kitchen island in matte black, contrasting with vintage leather sofas and a gallery wall of street art. Strategic track lighting highlights architectural details, creating a dynamic interplay of shadow and form.',
+    description: 'his interior design project, located in North Lebanon  reflects a modern and highly functional approach tailored to the client’s lifestyle. The design combines sleek lines and smart spatial organization with a rich palette of dark and nude tones, creating a bold yet balanced atmosphere. Each space was crafted to feel contemporary, comfortable, and practical.',
     image: innt2,
   },
    {
     id: 'library-design',
     title: 'YS Interior',
-    description: 'YS Interior embodies the principles of Scandinavian minimalism—clean lines, functionality, and warmth. Designed for a creative studio, the space uses a neutral base (white walls, pale wood floors) punctuated by playful geometric lighting and modular furniture. Built-in shelving doubles as display space for inspirational objects, while ergonomic seating ensures productivity. The deliberate absence of clutter fosters focus and creativity.',
+    description: 'This interior project in Jbeil was designed with a focus on modern functionality, tailored to the client’s needs. A rich palette of dark and nude tones adds depth and warmth, while clean lines and thoughtful layouts create a sleek, practical living environment.',
     image: innt3,
   },
    {
     id: 'library-design',
     title: 'SR Interior',
-    description: 'A refined blend of contemporary elegance and timeless comfort, SR Interior redefines urban living with a focus on bespoke craftsmanship. The space features a muted yet rich palette—soft taupe walls, brushed brass accents, and custom millwork in warm oak. Floor-to-ceiling windows flood the interiors with natural light, while curated art pieces and sculptural lighting add depth. Smart home integration ensures seamless functionality, making this a sanctuary of understated luxury.',
+    description: 'This project features a clean, open space that combines the dining area, staircase, and living room into one cohesive layout. The design emphasizes simplicity, flow, and light—creating a welcoming and modern shared zone at the heart of the villa.',
     image: innt4,
   }
 ];
@@ -206,7 +206,7 @@ const AboutSection = () => (
         </Col>
         <Col md={6}>
           <p className="about-text">
-            Founded in 2024, our firm began with a simple mission: to create architecture that is both beautiful and meaningful. Over the years, we have grown into a leading firm known for our commitment to sustainability, client collaboration, and bold, modern design. Our work has been recognized with numerous industry awards, and we continue to push the boundaries of what is possible.
+            Vent is an independent architectural and design studio founded by Saja Tarshishi and Ali Chaer. Inspired by the idea of “ventilation” as a window to the world, Vent is a platform that opens space for fresh perspectives in architecture. We focus on creating thoughtful, functional, and timeless designs — from intimate interiors to large-scale developments. Through our work, we aim to craft spaces that breathe, connect, and inspire.
           </p>
         </Col>
       </Row>
