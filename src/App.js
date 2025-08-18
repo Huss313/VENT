@@ -67,7 +67,7 @@ const projectsData = [
   {
     id: 'library-design',
     title: 'RY Interior',
-    description: 'his interior design project, located in North Lebanon  reflects a modern and highly functional approach tailored to the client’s lifestyle. The design combines sleek lines and smart spatial organization with a rich palette of dark and nude tones, creating a bold yet balanced atmosphere. Each space was crafted to feel contemporary, comfortable, and practical.',
+    description: 'This interior design project, located in North Lebanon  reflects a modern and highly functional approach tailored to the client’s lifestyle. The design combines sleek lines and smart spatial organization with a rich palette of dark and nude tones, creating a bold yet balanced atmosphere. Each space was crafted to feel contemporary, comfortable, and practical.',
     image: innt2,
   },
    {
@@ -206,7 +206,7 @@ const AboutSection = () => (
         </Col>
         <Col md={6}>
           <p className="about-text">
-            <h2>Vent is an independent architectural and design studio founded by Saja Tarshishi and Ali Chaer. Inspired by the idea of “ventilation” as a window to the world, Vent is a platform that opens space for fresh perspectives in architecture. We focus on creating thoughtful, functional, and timeless designs — from intimate interiors to large-scale developments. Through our work, we aim to craft spaces that breathe, connect, and inspire.</h2>
+            <h2>Vent is an independent architectural and design studio founded by Saja Tarshishi and Ali Chaer. Inspired by the idea of  “ ventilation ”  as a window to the world, Vent is a platform that opens space for fresh perspectives in architecture. We focus on creating thoughtful, functional, and timeless designs — from intimate interiors to large-scale developments. Through our work, we aim to craft spaces that breathe, connect, and inspire.</h2>
           </p>
         </Col>
       </Row>
