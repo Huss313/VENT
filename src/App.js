@@ -32,21 +32,21 @@ const teamMember2 = Saja;
 // --- Project Data (for demonstration purposes) ---
 const projectsData = [
   {
-    id: 'skyscraper',
+    id: 'skyscraper1',
     title: 'residential compound',
     description: 'A modern residential compound featuring clean lines, floating volumes, and a bold architectural form. The landscape is designed with stepped levels, greenery to create a balanced and inviting outdoor space that enhances the overall experience.',
     image: exx1,
     
   },
    {
-    id: 'skyscraper',
+    id: 'skyscraper2',
     title: 'Building R',
     description: 'This project explores the balance between bold geometric volumes and natural integration. The design emphasizes layered facades, deep frames, and material contrast to create visual rhythm and spatial depth. With generous balconies, dynamic shadows, and integrated greenery, the architecture promotes openness and connection to the outdoors.',
     image: exx2,
     
   },
    {
-    id: 'skyscraper',
+    id: 'skyscraper3',
     title: 'Tower s1',
     description: 'This tower project, located in Saudi Arabia, was designed with a deep sensitivity to the region’s harsh climate and environmental conditions. The architectural approach focuses on performance and resilience, featuring carefully studied openings and strategically placed metal louvres that optimize natural ventilation, reduce solar gain, and enhance the building’s visual identity. The result is a bold, climate-responsive form that blends functionality with refined contemporary expression.',
     image: exx3,
@@ -65,39 +65,35 @@ const projectsData = [
     image: innt1,
   },
   {
-    id: 'library-design',
+    id: 'library-design1',
     title: 'RY Interior',
     description: 'This interior design project, located in North Lebanon  reflects a modern and highly functional approach tailored to the client’s lifestyle. The design combines sleek lines and smart spatial organization with a rich palette of dark and nude tones, creating a bold yet balanced atmosphere. Each space was crafted to feel contemporary, comfortable, and practical.',
     image: innt2,
   },
    {
-    id: 'library-design',
+    id: 'library-design2',
     title: 'YS Interior',
     description: 'This interior project in Jbeil was designed with a focus on modern functionality, tailored to the client’s needs. A rich palette of dark and nude tones adds depth and warmth, while clean lines and thoughtful layouts create a sleek, practical living environment.',
     image: innt3,
   },
    {
-    id: 'library-design',
+    id: 'library-design3',
     title: 'SR Interior',
     description: 'This project features a clean, open space that combines the dining area, staircase, and living room into one cohesive layout. The design emphasizes simplicity, flow, and light—creating a welcoming and modern shared zone at the heart of the villa.',
     image: innt4,
   }
 ];
 
-
-// --- RevealOnScroll Component ---
-// This component adds a fade-in animation when a component scrolls into view.
 const RevealOnScroll = ({ children }) => {
   const [isVisible, setVisible] = useState(false);
   const domRef = useRef();
 
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
-      // Check if the element is intersecting (in view)
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           setVisible(true);
-          observer.unobserve(entry.target); // Stop observing once it's visible
+          observer.unobserve(entry.target); 
         }
       });
     });
@@ -122,7 +118,6 @@ const RevealOnScroll = ({ children }) => {
   );
 };
 
-// --- Navbar Component ---
 const Navbar = ({ onNavigate }) => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
     <Container>
@@ -155,7 +150,6 @@ const Navbar = ({ onNavigate }) => (
     </Container>
   </nav>
 );
-
 
 const HeroSection = () => (
   <header
@@ -255,9 +249,9 @@ const ServicesSection = () => (
   alt="Service icon" 
   className="service-icon"
   style={{
-    width: '50px',       // Adjust size as needed
+    width: '50px',      
     height: '50px',
-    objectFit: 'contain' ,// Preserves aspect ratio
+    objectFit: 'contain' ,
     backgroundColor: 'transparent'
   }}
 />
@@ -276,9 +270,9 @@ const ServicesSection = () => (
   alt="Service icon" 
   className="service-icon"
   style={{
-    width: '50px',       // Adjust size as needed
+    width: '50px',      
     height: '50px',
-    objectFit: 'contain' ,// Preserves aspect ratio
+    objectFit: 'contain' ,
     backgroundColor: 'transparent'
   }}
 />
@@ -313,10 +307,7 @@ const ProjectsSection = ({ onNavigate }) => (
     </Container>
   </section>
 );
-
-// --- New Projects List Page Component ---
 const ProjectsListPage = ({ onSelectProject, onBack }) => (
-  // Removed mt-5 and pt-5 to remove the gap at the top
   <section className="py-5">
     <Container>
       <Button onClick={onBack} variant="secondary" className="mb-4">Back to Home</Button>
@@ -348,7 +339,6 @@ const ProjectsListPage = ({ onSelectProject, onBack }) => (
   </section>
 );
 
-// --- New Project Detail Component ---
 const ProjectDetail = ({ projectId, onBack }) => {
   const project = projectsData.find(p => p.id === projectId);
   if (!project) {
@@ -359,9 +349,7 @@ const ProjectDetail = ({ projectId, onBack }) => {
       </Container>
     );
   }
-
   return (
-    // Removed mt-5 and pt-5 to remove the gap at the top
     <section className="py-5">
       <Container>
         <Button onClick={onBack} variant="primary" className="mb-3 btn btn-custom btn-custom-gray mt-auto">Go Back to Projects</Button>
@@ -375,16 +363,13 @@ const ProjectDetail = ({ projectId, onBack }) => {
   );
 };
 
-
-// --- Team Section ---
-// In App.js
 const TeamSection = () => {
   const teamMembers = [
     {
       name: 'Ali Chaer',
       title: 'Architect',
       image: Ali,
-      position: 'center 25%' // Adjust to show face properly
+      position: 'center 25%' 
     },
     {
       name: 'Saja Tarchichi',
@@ -393,7 +378,6 @@ const TeamSection = () => {
       position: 'center 30%'
     }
   ];
-
   return (
     <section id="team" className="py-5 bg-light">
       <Container>
@@ -414,7 +398,6 @@ const TeamSection = () => {
                     title={member.title}
                     position={member.position}
                   />
-                 
                 </Card>
               </RevealOnScroll>
             </Col>
@@ -424,7 +407,7 @@ const TeamSection = () => {
     </section>
   );
 };
-// --- Contact Section ---
+
 const ContactSection = () => (
   <section id="contact" className="py-5">
     <Container>
@@ -495,8 +478,6 @@ const ContactSection = () => (
     </Container>
   </section>
 );
-
-// --- Footer Component ---
 const Footer = () => (
   <footer className="bg-dark text-white text-center py-4">
     <Container>
@@ -556,7 +537,6 @@ export default function App() {
       >
         <FaArrowUp />
       </Button>
-      {/* Custom CSS for a better look and feel */}
       <style>{`
         body {
           font-family: 'Inter', sans-serif;
