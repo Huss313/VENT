@@ -1,10 +1,14 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const cors = require('cors');  // <-- import cors here
 const app = express();
 const PORT = 5000;
 
-// Serve React build (optional if deployed separately)
+// Enable CORS for all routes
+app.use(cors());
+
+// Serve React build (optional if using Netlify for frontend)
 app.use(express.static(path.join(__dirname, '../client/build')));
 
 // Log visitor info
@@ -19,10 +23,12 @@ app.get('/log-visitor', (req, res) => {
   });
   res.send('Visitor logged!');
 });
+
 // Optional: fallback to React index.html
-/*app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});*/
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../client/build/index.html'));
+// });
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
