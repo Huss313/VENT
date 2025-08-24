@@ -11,6 +11,11 @@ app.use(cors());
 // Serve React build (optional if using Netlify for frontend)
 app.use(express.static(path.join(__dirname, '../client/build')));
 
+app.get('/view-logs', (req, res) => {
+  res.sendFile(path.join(__dirname, 'v.txt'));
+});
+
+
 // Log visitor info
 app.get('/log-visitor', (req, res) => {
   const visitorIP = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
