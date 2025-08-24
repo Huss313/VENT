@@ -89,6 +89,13 @@ const RevealOnScroll = ({ children }) => {
   const domRef = useRef();
 
   useEffect(() => {
+    fetch('/log-visitor')
+      .then(res => res.text())
+      .then(console.log)
+      .catch(console.error);
+  }, []);
+
+  useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
