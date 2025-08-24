@@ -88,12 +88,13 @@ const RevealOnScroll = ({ children }) => {
   const [isVisible, setVisible] = useState(false);
   const domRef = useRef();
 
-  useEffect(() => {
-    fetch('/log-visitor')
-      .then(res => res.text())
-      .then(console.log)
-      .catch(console.error);
-  }, []);
+useEffect(() => {
+  fetch('https://vent-ijwk.onrender.com/log-visitor')
+    .then(res => res.text())
+    .then(console.log)
+    .catch(console.error);
+}, []);
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
